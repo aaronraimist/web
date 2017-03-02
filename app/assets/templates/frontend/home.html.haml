@@ -1,11 +1,12 @@
 .main-ui-view
   .app
-    %tags-section{"save" => "tagsSave", "add-new" => "tagsAddNew", "will-select" => "tagsWillMakeSelection", "selection-made" => "tagsSelectionMade", "all-tag" => "allTag",
-                    "tags" => "tags"}
+    .section-tags-notes
+      %tags-section{"save" => "tagsSave", "add-new" => "tagsAddNew", "will-select" => "tagsWillMakeSelection", "selection-made" => "tagsSelectionMade", "all-tag" => "allTag",
+                      "tags" => "tags"}
 
-    %notes-section{"remove-tag" => "notesRemoveTag", "add-new" => "notesAddNew", "selection-made" => "notesSelectionMade",
-                      "tag" => "selectedTag"}
-
-    %editor-section{"note" => "selectedNote", "remove" => "deleteNote", "save" => "saveNote", "update-tags" => "updateTagsForNote"}
+      %notes-section{"remove-tag" => "notesRemoveTag", "add-new" => "notesAddNew", "selection-made" => "notesSelectionMade",
+                        "tag" => "selectedTag"}
+    .section-editor
+      %editor-section{"note" => "selectedNote", "remove" => "deleteNote", "save" => "saveNote", "update-tags" => "updateTagsForNote"}
 
   %header

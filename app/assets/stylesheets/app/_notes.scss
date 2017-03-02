@@ -1,12 +1,13 @@
 .notes {
-  border-left: 1px solid #dddddd;
-  border-right: 1px solid #dddddd;
+  border-left: 1px solid $border-color;
+  border-right: 1px solid $border-color;
 
-  flex: 1 20%;
-  max-width: 350px;
+  flex: 1 50%;
+  // max-width: 350px;
   min-width: 170px;
 
-  $notes-title-bar-height: 130px;
+  $notes-title-bar-height: 126px;
+  $notes-title-bar-height-small: 80px;
 
   .notes-title-bar {
     color: rgba(black, 0.40);
@@ -14,7 +15,50 @@
     height: $notes-title-bar-height !important;
     font-weight: normal !important;
     font-size: 18px !important;
+
+    .notes-top-header {
+      .section-title-bar-title {
+        margin-bottom: 16px;
+      }
+
+      .add-button {
+        right: 20px !important;
+      }
+    }
+
+    @include MQ-Collapse() {
+      padding: 10px !important;
+
+      height: $notes-title-bar-height-small !important;
+      .notes-top-header {
+        display: flex;
+        flex-direction: row;
+        // padding-top: 2px;
+
+        .section-title-bar-title {
+          width: auto !important;
+          display: none;
+        }
+
+        .add-button {
+          height: 32px;
+          padding-top: 5px;
+          // right: 20px !important;
+        }
+
+        .filter-section {
+          flex: 1 50%;
+          margin-right: 62px;
+          margin-left: 0 !important;
+          clear: none;
+          margin-top: 0;
+          margin-left: 10px;
+        }
+      }
+    }
   }
+
+
 
   .tag-menu-bar {
     position: relative;
@@ -25,9 +69,9 @@
   }
 
   .filter-section {
-    clear: left;
+    clear: both;
     height: 32px;
-    margin-top: 20px;
+    margin-top: 100px;
 
     .filter-bar {
       background-color: $light-bg-color;
@@ -46,6 +90,9 @@
 
   .scrollable {
     height: calc(100vh - (#{$notes-title-bar-height} + #{$header-height}));
+    @include MQ-Collapse() {
+      height: calc(100vh - (#{$notes-title-bar-height-small} + #{$header-height}));
+    }
   }
 
   .infinite-scroll {

@@ -1,6 +1,6 @@
 $heading-height: 75px;
 .editor {
-  flex: 1 50%;
+  flex: 1 1 100%;
   min-width: 300px;
   display: flex;
   flex-direction: column;
@@ -41,7 +41,7 @@ $heading-height: 75px;
     position: relative;
   }
 
-  > .title {
+  > .section-title-bar-title {
     font-size: 18px;
     font-weight: bold;
     padding-top: 0px;

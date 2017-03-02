@@ -5,6 +5,7 @@ $light-bg-color: #e9e9e9;
 $selection-color: $bg-color;
 $selected-text-color: black;
 $blue-color: #086dd6;
+$border-color: #dddddd;
 
 @mixin MQ-Small() {
   @media (max-width: $screen-xs-max) {
@@ -89,13 +90,38 @@ $header-height: 25px;
 $section-header-height: 70px;
 
 .app {
-  // height: 100%;
   height: calc(100% - #{$header-height});
   width: 100%;
   display: flex;
   vertical-align: top;
   overflow: hidden;
   position: relative;
+  flex-direction: row;
+
+  @include MQ-Collapse() {
+    flex-direction: column;
+  }
+
+  .section-tags-notes {
+    display: flex;
+    flex: 1 20%;
+    max-width: 500px;
+
+    @include MQ-MaxMedium() {
+      max-width: 400px;
+    }
+
+    @include MQ-Collapse() {
+      flex: 1 20%;
+      max-width: none;
+      border-bottom: 1px solid $border-color;
+    }
+  }
+
+  .section-editor {
+    display: flex;
+    flex: 1 70%;
+  }
 
   .light-button {
     background-color: $bg-color;
@@ -117,6 +143,7 @@ $section-header-height: 70px;
     height: 100%;
     max-height: calc(100vh - #{$header-height});
     font-size: 17px;
+    overflow: auto;
 
     .scrollable {
       overflow-y: auto;
@@ -136,7 +163,7 @@ $section-header-height: 70px;
      font-weight: bold;
      font-size: 14px;
 
-     > .title {
+    .section-title-bar-title {
        float: left;
        white-space: nowrap;
        text-overflow: ellipsis;
@@ -144,7 +171,7 @@ $section-header-height: 70px;
        overflow: hidden;
      }
 
-     > .add-button {
+     .add-button {
        float: right;
        font-size: 18px;
        width: 45px;

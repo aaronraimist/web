@@ -1,11 +1,12 @@
 .section.notes
   .content
     .section-title-bar.notes-title-bar
-      .title {{ctrl.tag.title}} notes
-      .add-button{"ng-click" => "ctrl.createNewNote()"} +
-      %br
-      .filter-section
-        %input.filter-bar{"select-on-click" => "true", "ng-model" => "ctrl.noteFilter.text", "placeholder" => "Search", "ng-change" => "ctrl.filterTextChanged()", "lowercase" => "true"}
+      .notes-top-header
+        .section-title-bar-title {{ctrl.tag.title}} notes
+        .add-button{"ng-click" => "ctrl.createNewNote()"} +
+
+        .filter-section
+          %input.filter-bar{"select-on-click" => "true", "ng-model" => "ctrl.noteFilter.text", "placeholder" => "Search", "ng-change" => "ctrl.filterTextChanged()", "lowercase" => "true"}
       .section-menu.tag-menu-bar
         %ul.nav.nav-pills
           %li.dropdown
